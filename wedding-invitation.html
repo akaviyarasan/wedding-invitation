@@ -11,63 +11,73 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8f3e8, #f1e4c3);
+    background: linear-gradient(135deg, #fdf6e3, #f3e0b5);
     color: #4b2e2e;
     overflow-x: hidden;
 }
 
-/* ✨ Soft gold floating circles */
-.background {
+/* 🪔 Scroll opening */
+.overlay {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    background: #3b2f2f;
+    color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10;
+    animation: fadeOut 2s ease 3s forwards;
 }
 
-.circle {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(212,175,55,0.2);
-    animation: float 10s infinite ease-in-out;
+.overlay h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-40px); }
-    100% { transform: translateY(0px); }
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
-/* 📱 Container */
-.container {
-    padding: 20px;
+/* 🏛 Temple style header */
+.header {
     text-align: center;
-}
-
-/* 💎 Card */
-.card {
-    background: rgba(255,255,255,0.7);
-    border: 1px solid #d4af37;
-    border-radius: 20px;
     padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    background: url('https://i.imgur.com/6Iej2c3.png') no-repeat center;
+    background-size: contain;
 }
 
-/* 🎀 Title */
 .title {
     font-family: 'Great Vibes', cursive;
     font-size: 42px;
     color: #b8860b;
 }
 
-/* 💑 Names */
 .names {
     font-size: 30px;
     margin: 15px 0;
     font-weight: 600;
 }
 
-/* 🏷 Headings */
+/* 💎 Cards */
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.8);
+    border: 2px solid #d4af37;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
 .heading {
     color: #b8860b;
     font-weight: 600;
@@ -79,25 +89,43 @@ body {
     border-radius: 15px;
 }
 
+/* 📱 WhatsApp button */
+.whatsapp {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #25D366;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /* ✨ Footer */
 .footer {
-    margin-top: 20px;
-    font-size: 16px;
+    margin: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="background" id="bg"></div>
+<!-- 🪔 Opening Animation -->
+<div class="overlay">
+    <h1>You're Invited 💌</h1>
+    <p>Tap to Enter</p>
+</div>
 
-<div class="container">
-
+<!-- 🏛 Header -->
+<div class="header">
     <div class="title">The Wedding Of</div>
-
     <div class="names">
         Kaviyarasan A <br> & <br> Sowmiya S
     </div>
+</div>
+
+<!-- 💎 Content -->
+<div class="container">
 
     <div class="card">
         <div class="heading">Reception</div>
@@ -123,28 +151,18 @@ body {
         </div>
     </div>
 
+    <!-- 📱 WhatsApp RSVP -->
+    <a class="whatsapp" 
+       href="https://wa.me/91XXXXXXXXXX?text=I%20will%20attend%20your%20wedding%20💐"
+       target="_blank">
+       RSVP on WhatsApp
+    </a>
+
     <div class="footer">
-        We request the honour of your presence & blessings ✨
+        We request the honour of your presence & blessings 🙏
     </div>
 
 </div>
-
-<script>
-/* ✨ Floating golden circles */
-const bg = document.getElementById("bg");
-
-for (let i = 0; i < 15; i++) {
-    let c = document.createElement("div");
-    c.className = "circle";
-    let size = Math.random() * 120 + 60;
-    c.style.width = size + "px";
-    c.style.height = size + "px";
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.top = Math.random() * 100 + "vh";
-    c.style.animationDuration = (8 + Math.random() * 5) + "s";
-    bg.appendChild(c);
-}
-</script>
 
 </body>
 </html>
