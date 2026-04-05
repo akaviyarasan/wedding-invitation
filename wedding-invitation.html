@@ -11,77 +11,78 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #0f0f0f;
-    color: white;
+    background: linear-gradient(135deg, #f8f3e8, #f1e4c3);
+    color: #4b2e2e;
     overflow-x: hidden;
 }
 
-/* ✨ Animated Background */
+/* ✨ Soft gold floating circles */
 .background {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #1a1a1a, #000);
     z-index: -1;
 }
 
-.sparkle {
+.circle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: gold;
     border-radius: 50%;
-    animation: float 5s infinite;
+    background: rgba(212,175,55,0.2);
+    animation: float 10s infinite ease-in-out;
 }
 
 @keyframes float {
-    0% { transform: translateY(0); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-100vh); opacity: 0; }
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-40px); }
+    100% { transform: translateY(0px); }
 }
 
-/* 📱 Mobile-first card */
+/* 📱 Container */
 .container {
     padding: 20px;
     text-align: center;
 }
 
+/* 💎 Card */
 .card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,215,0,0.3);
+    background: rgba(255,255,255,0.7);
+    border: 1px solid #d4af37;
     border-radius: 20px;
     padding: 20px;
     margin: 15px 0;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
+/* 🎀 Title */
 .title {
     font-family: 'Great Vibes', cursive;
-    font-size: 36px;
-    color: gold;
+    font-size: 42px;
+    color: #b8860b;
 }
 
+/* 💑 Names */
 .names {
-    font-size: 28px;
+    font-size: 30px;
     margin: 15px 0;
+    font-weight: 600;
 }
 
+/* 🏷 Headings */
 .heading {
-    color: gold;
+    color: #b8860b;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.map {
+/* 📍 Map */
+.map iframe {
     border-radius: 15px;
-    overflow: hidden;
-    margin-top: 10px;
 }
 
+/* ✨ Footer */
 .footer {
     margin-top: 20px;
     font-size: 16px;
-    opacity: 0.8;
 }
 </style>
 </head>
@@ -92,10 +93,10 @@ body {
 
 <div class="container">
 
-    <div class="title">Wedding Invitation</div>
+    <div class="title">The Wedding Of</div>
 
     <div class="names">
-        Kaviyarasan A <br> ❤️ <br> Sowmiya S
+        Kaviyarasan A <br> & <br> Sowmiya S
     </div>
 
     <div class="card">
@@ -114,10 +115,9 @@ body {
         <div class="heading">Venue</div>
         <p>Somasundara Mahal, Tiruppur</p>
 
-        <!-- 📍 Google Maps -->
         <div class="map">
             <iframe 
-                src="https://maps.google.com/maps?q=Somasundara%20Mahal%20Tiruppur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Somasundara%20Mahal%20Tiruppur&z=15&output=embed"
                 width="100%" height="200" style="border:0;">
             </iframe>
         </div>
@@ -130,16 +130,19 @@ body {
 </div>
 
 <script>
-/* ✨ Generate sparkles */
+/* ✨ Floating golden circles */
 const bg = document.getElementById("bg");
 
-for (let i = 0; i < 40; i++) {
-    let s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = Math.random() * 100 + "vw";
-    s.style.animationDuration = (3 + Math.random() * 5) + "s";
-    s.style.opacity = Math.random();
-    bg.appendChild(s);
+for (let i = 0; i < 15; i++) {
+    let c = document.createElement("div");
+    c.className = "circle";
+    let size = Math.random() * 120 + 60;
+    c.style.width = size + "px";
+    c.style.height = size + "px";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.top = Math.random() * 100 + "vh";
+    c.style.animationDuration = (8 + Math.random() * 5) + "s";
+    bg.appendChild(c);
 }
 </script>
 
