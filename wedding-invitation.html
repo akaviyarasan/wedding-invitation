@@ -5,86 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kaviyarasan & Sowmiya Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(to bottom, #f5f0e6, #e8d9b5);
-    text-align: center;
-    color: #4b2e2e;
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: white;
+    overflow-x: hidden;
 }
 
+/* ✨ Animated Background */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    z-index: -1;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: gold;
+    border-radius: 50%;
+    animation: float 5s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* 📱 Mobile-first card */
 .container {
-    padding: 30px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    backdrop-filter: blur(10px);
 }
 
 .title {
     font-family: 'Great Vibes', cursive;
-    font-size: 50px;
-    color: #8b0000;
+    font-size: 36px;
+    color: gold;
 }
 
 .names {
-    font-size: 40px;
-    margin: 20px 0;
-}
-
-.section {
-    margin: 25px 0;
-    padding: 20px;
-    border: 2px solid #d4af37;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.6);
+    font-size: 28px;
+    margin: 15px 0;
 }
 
 .heading {
-    font-size: 28px;
-    color: #b8860b;
+    color: gold;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
+.map {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
 .footer {
-    margin-top: 30px;
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: 0.8;
 }
 </style>
 </head>
 
 <body>
 
+<div class="background" id="bg"></div>
+
 <div class="container">
 
-    <div class="title">The Wedding Of</div>
+    <div class="title">Wedding Invitation</div>
 
     <div class="names">
-        Kaviyarasan A <br> & <br> Sowmiya S
+        Kaviyarasan A <br> ❤️ <br> Sowmiya S
     </div>
 
-    <div class="section">
+    <div class="card">
         <div class="heading">Reception</div>
         <p>📅 06 June 2026</p>
         <p>🕰 6:00 PM – 9:00 PM</p>
     </div>
 
-    <div class="section">
+    <div class="card">
         <div class="heading">Wedding</div>
         <p>📅 07 June 2026</p>
         <p>🕰 4:30 AM – 5:30 AM</p>
     </div>
 
-    <div class="section">
+    <div class="card">
         <div class="heading">Venue</div>
-        <p>Somasundara Mahal</p>
-        <p>Tiruppur</p>
+        <p>Somasundara Mahal, Tiruppur</p>
+
+        <!-- 📍 Google Maps -->
+        <div class="map">
+            <iframe 
+                src="https://maps.google.com/maps?q=Somasundara%20Mahal%20Tiruppur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%" height="200" style="border:0;">
+            </iframe>
+        </div>
     </div>
 
     <div class="footer">
-        We request the honour of your presence & blessings
+        We request the honour of your presence & blessings ✨
     </div>
 
 </div>
+
+<script>
+/* ✨ Generate sparkles */
+const bg = document.getElementById("bg");
+
+for (let i = 0; i < 40; i++) {
+    let s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDuration = (3 + Math.random() * 5) + "s";
+    s.style.opacity = Math.random();
+    bg.appendChild(s);
+}
+</script>
 
 </body>
 </html>
