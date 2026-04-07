@@ -6,7 +6,7 @@
 
 <title>Kaviyarasan & Sowmiya Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,27 +18,14 @@ body {
     color: white;
 }
 
-/* 🌑 Overlay */
+/* 🌤 Softer overlay */
 body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.45); /* reduced darkness */
     z-index: -1;
-}
-
-/* 🪔 Gold Border Animation */
-body {
-    border: 6px solid transparent;
-    border-image: linear-gradient(45deg, gold, #ffdf80, gold) 1;
-    animation: borderGlow 3s infinite;
-}
-
-@keyframes borderGlow {
-    0% { border-image-source: linear-gradient(45deg, gold, #ffdf80); }
-    50% { border-image-source: linear-gradient(45deg, #fff2b3, gold); }
-    100% { border-image-source: linear-gradient(45deg, gold, #ffdf80); }
 }
 
 /* 📜 Scroll Opening */
@@ -57,19 +44,17 @@ body {
     width: 80%;
     height: 60%;
     background: linear-gradient(145deg, #f5e6c4, #e8d3a3);
-    border: 6px solid gold;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 40px rgba(255,215,0,0.6);
     transition: transform 1.5s ease, opacity 1s;
 }
 
 .scroll-text {
-    font-family: 'Great Vibes', cursive;
-    font-size: 32px;
-    color: #6b3e26;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #5a3e2b;
 }
 
 .scroll.open {
@@ -80,18 +65,30 @@ body {
 /* 💖 Header */
 .header {
     text-align: center;
-    padding: 60px 20px 20px;
+    padding: 60px 20px 10px;
 }
 
 .title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 48px;
-    color: gold;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    opacity: 0.9;
 }
 
 .names {
     font-size: 32px;
-    margin-top: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* 💬 Quotes */
+.quote {
+    text-align: center;
+    max-width: 90%;
+    margin: 20px auto;
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 
 /* 💎 Cards */
@@ -101,12 +98,13 @@ body {
 }
 
 .card {
-    backdrop-filter: blur(10px);
-    background: rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 20px;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.25); /* minimal border */
+    border-radius: 16px;
+    padding: 18px;
     margin: 15px auto;
-    max-width: 400px;
+    max-width: 380px;
 }
 
 /* 📱 Buttons */
@@ -114,10 +112,10 @@ body {
     display: inline-block;
     margin: 10px;
     padding: 12px 20px;
-    border-radius: 30px;
+    border-radius: 25px;
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .calendar { background: #ff9800; }
@@ -125,6 +123,8 @@ body {
 
 .footer {
     margin: 20px;
+    font-size: 13px;
+    opacity: 0.8;
 }
 
 </style>
@@ -136,17 +136,26 @@ body {
 <div class="scroll-overlay" onclick="openInvite()">
     <div class="scroll">
         <div class="scroll-text">
-            💌 Tap to Open Invitation 💌
+            Tap to Open Invitation 💌
         </div>
     </div>
 </div>
 
 <!-- 💖 Header -->
 <div class="header">
-    <div class="title">Together With Their Families</div>
+    <div class="title">TOGETHER WITH OUR FAMILIES</div>
     <div class="names">
         Kaviyarasan A <br> & <br> Sowmiya S
     </div>
+</div>
+
+<!-- 💬 Quotes -->
+<div class="quote">
+    TOGETHER WITH OUR FAMILIES, WE INVITE YOU TO WITNESS THE BEGINNING OF OUR FOREVER.
+</div>
+
+<div class="quote">
+    With the blessings of the Almighty, we joyfully begin our journey as one.
 </div>
 
 <!-- 💎 Content -->
@@ -168,7 +177,6 @@ body {
         <h3>Venue</h3>
         <p>Somasundara Mahal, Tiruppur</p>
 
-        <!-- 🧭 Map Button -->
         <a class="btn mapbtn"
            href="https://www.google.com/maps/search/?api=1&query=Somasundara+Mahal+Tiruppur"
            target="_blank">
