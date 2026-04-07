@@ -10,7 +10,7 @@
 
 <style>
 
-/* 🌹 Background (SHARP) */
+/* 🌹 Background */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -18,48 +18,64 @@ body {
     color: white;
 }
 
-/* 🌤 Very Light Overlay (no blur effect) */
+/* 🎨 Smart Gradient Overlay (Top dark → bottom clear) */
 body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.15); /* very light */
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.25) 40%,
+        rgba(0,0,0,0.05) 80%,
+        rgba(0,0,0,0) 100%
+    );
     z-index: -1;
 }
 
-/* 📜 Scroll Opening */
+/* ✨ Text Glow */
+.title, .names, .quote, h3, p {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* 📜 Stylish Scroll Opening */
 .scroll-overlay {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #2c1b1b;
+    background: radial-gradient(circle, #3a2b2b, #1a1111);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
 }
 
-.scroll {
-    width: 80%;
-    height: 60%;
-    background: linear-gradient(145deg, #f5e6c4, #e8d3a3);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 1.5s ease, opacity 1s;
+.scroll-card {
+    padding: 30px 40px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #f8e7c9, #e6cfa5);
+    box-shadow: 0 0 30px rgba(255,215,0,0.4);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.scroll-card:hover {
+    transform: scale(1.05);
 }
 
 .scroll-text {
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 26px;
     color: #5a3e2b;
 }
 
-.scroll.open {
+/* Animation */
+.scroll-card.open {
     transform: scaleY(0);
     opacity: 0;
+    transition: all 1.5s ease;
 }
 
 /* 💖 Header */
@@ -72,47 +88,43 @@ body::before {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     letter-spacing: 2px;
-    opacity: 0.9;
 }
 
 .names {
-    font-size: 32px;
+    font-size: 34px;
     margin-top: 10px;
-    font-weight: 500;
 }
 
 /* 💬 Quotes */
 .quote {
     text-align: center;
     max-width: 90%;
-    margin: 15px auto;
+    margin: 12px auto;
     font-size: 14px;
     line-height: 1.6;
-    opacity: 0.95;
 }
 
-/* 💎 Cards */
+/* 💎 Elegant Sections (no heavy box blur) */
 .container {
     padding: 20px;
     text-align: center;
 }
 
-.card {
-    backdrop-filter: blur(6px);
+.section {
+    margin: 18px auto;
+    padding: 14px 20px;
+    max-width: 360px;
+    border-radius: 40px;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 16px;
-    padding: 18px;
-    margin: 15px auto;
-    max-width: 380px;
 }
 
 /* 📱 Buttons */
 .btn {
     display: inline-block;
     margin: 10px;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 12px 22px;
+    border-radius: 30px;
     text-decoration: none;
     color: white;
     font-weight: 500;
@@ -124,7 +136,7 @@ body::before {
 .footer {
     margin: 20px;
     font-size: 13px;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 </style>
@@ -132,24 +144,22 @@ body::before {
 
 <body>
 
-<!-- 📜 Scroll Opening -->
+<!-- 📜 Opening -->
 <div class="scroll-overlay" onclick="openInvite()">
-    <div class="scroll">
+    <div class="scroll-card">
         <div class="scroll-text">
-            Tap to Open Invitation 💌
+            💌 Tap to Open Invitation 💌
         </div>
     </div>
 </div>
 
 <!-- 💖 Header -->
 <div class="header">
-    <div class="title">TOGETHER WITH OUR FAMILIES, WE INVITE YOU TO WITNESS THE BEGINNING OF OUR FOREVER.
-</div>
+    <div class="title">TOGETHER WITH OUR FAMILIES, WE INVITE YOU TO WITNESS THE BEGINNING OF OUR FOREVER.</div>
     <div class="names">
         Kaviyarasan A <br> & <br> Sowmiya S
     </div>
 </div>
-
 
 <div class="quote">
     With the blessings of the Almighty, we joyfully begin our journey as one.
@@ -158,19 +168,19 @@ body::before {
 <!-- 💎 Content -->
 <div class="container">
 
-    <div class="card">
+    <div class="section">
         <h3>Reception</h3>
         <p>📅 06 June 2026</p>
         <p>🕰 6:00 PM – 9:00 PM</p>
     </div>
 
-    <div class="card">
+    <div class="section">
         <h3>Wedding</h3>
         <p>📅 07 June 2026</p>
         <p>🕰 4:30 AM – 5:30 AM</p>
     </div>
 
-    <div class="card">
+    <div class="section">
         <h3>Venue</h3>
         <p>Somasundara Mahal, Tiruppur</p>
 
@@ -194,11 +204,11 @@ body::before {
 
 </div>
 
-<!-- 📜 Scroll Script -->
+<!-- 📜 Script -->
 <script>
 function openInvite() {
-    const scroll = document.querySelector(".scroll");
-    scroll.classList.add("open");
+    const card = document.querySelector(".scroll-card");
+    card.classList.add("open");
 
     setTimeout(() => {
         document.querySelector(".scroll-overlay").style.display = "none";
