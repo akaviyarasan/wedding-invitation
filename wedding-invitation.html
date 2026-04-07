@@ -3,122 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kaviyarasan & Sowmiya Wedding</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* 🌹 Romantic Background */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fdf6e3, #f3e0b5);
-    color: #4b2e2e;
-    overflow-x: hidden;
+    background: url('YOUR_IMAGE.jpg') no-repeat center/cover;
+    height: 100vh;
+    color: white;
 }
 
-/* 🪔 Scroll opening */
-.overlay {
+/* 🌑 Overlay for readability */
+body::before {
+    content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #3b2f2f;
-    color: gold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 10;
-    animation: fadeOut 2s ease 3s forwards;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
 }
 
-.overlay h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 40px;
+/* ✨ Fade Animation */
+.fade-in {
+    animation: fadeIn 2s ease-in;
 }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
 }
 
-/* 🏛 Temple style header */
+/* 💖 Header */
 .header {
     text-align: center;
-    padding: 20px;
-    background: url('https://i.imgur.com/6Iej2c3.png') no-repeat center;
-    background-size: contain;
+    padding: 60px 20px 20px;
 }
 
 .title {
     font-family: 'Great Vibes', cursive;
-    font-size: 42px;
-    color: #b8860b;
+    font-size: 48px;
+    color: #ffd700;
 }
 
 .names {
-    font-size: 30px;
-    margin: 15px 0;
+    font-size: 32px;
+    margin-top: 15px;
     font-weight: 600;
 }
 
-/* 💎 Cards */
+/* 💎 Glass Cards */
 .container {
     padding: 20px;
     text-align: center;
 }
 
 .card {
-    background: rgba(255,255,255,0.8);
-    border: 2px solid #d4af37;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 20px;
     padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin: 15px auto;
+    max-width: 400px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
+/* 🌟 Headings */
 .heading {
-    color: #b8860b;
+    color: #ffd700;
     font-weight: 600;
     margin-bottom: 10px;
+    font-size: 18px;
 }
 
 /* 📍 Map */
 .map iframe {
-    border-radius: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
 }
 
-/* 📱 WhatsApp button */
+/* 📱 WhatsApp Button */
 .whatsapp {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
-    background: #25D366;
+    margin-top: 25px;
+    padding: 14px 25px;
+    background: linear-gradient(45deg, #25D366, #128C7E);
     color: white;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 /* ✨ Footer */
 .footer {
-    margin: 20px;
+    margin: 25px;
+    font-size: 14px;
+    opacity: 0.9;
 }
+
 </style>
 </head>
 
-<body>
+<body class="fade-in">
 
-<!-- 🪔 Opening Animation -->
-<div class="overlay">
-    <h1>You're Invited 💌</h1>
-    <p>Tap to Enter</p>
-</div>
-
-<!-- 🏛 Header -->
+<!-- 💖 Header -->
 <div class="header">
-    <div class="title">The Wedding Of</div>
+    <div class="title">Together With Their Families</div>
     <div class="names">
         Kaviyarasan A <br> & <br> Sowmiya S
     </div>
@@ -153,13 +150,13 @@ body {
 
     <!-- 📱 WhatsApp RSVP -->
     <a class="whatsapp" 
-       href="https://wa.me/91XXXXXXXXXX?text=I%20will%20attend%20your%20wedding%20💐"
+       href="https://wa.me/91XXXXXXXXXX?text=We%20are%20excited%20to%20attend%20your%20wedding%20💐"
        target="_blank">
-       RSVP on WhatsApp
+       💌 RSVP on WhatsApp
     </a>
 
     <div class="footer">
-        We request the honour of your presence & blessings 🙏
+        With love, we invite you to celebrate our special day 💖
     </div>
 
 </div>
