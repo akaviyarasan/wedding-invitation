@@ -14,7 +14,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: url('YOUR_IMAGE.jpg') no-repeat center/cover;
+    background: url('https://drive.google.com/file/d/1bmPkiTgMeDrN205qpEFjGdFeAZ91b4lZ/view?usp=drivesdk') no-repeat center/cover;
     color: white;
 }
 
@@ -26,19 +26,6 @@ body::before {
     height: 100%;
     background: rgba(0,0,0,0.6);
     z-index: -1;
-}
-
-/* 💞 Floating Hearts */
-.heart {
-    position: fixed;
-    bottom: -10px;
-    font-size: 20px;
-    animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100vh); opacity: 0; }
 }
 
 /* 🪔 Gold animated border */
@@ -123,19 +110,6 @@ body {
 
 <body>
 
-<!-- 💞 Hearts Script -->
-<script>
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (10 + Math.random() * 20) + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
-}, 500);
-</script>
 
 <!-- 💖 Header -->
 <div class="header">
