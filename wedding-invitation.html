@@ -10,16 +10,15 @@
 
 <style>
 
-/* 🌹 Romantic Background */
+/* 🌹 Background */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: url('YOUR_IMAGE.jpg') no-repeat center/cover;
-    height: 100vh;
     color: white;
 }
 
-/* 🌑 Overlay for readability */
+/* 🌑 Dark overlay */
 body::before {
     content: "";
     position: fixed;
@@ -29,14 +28,30 @@ body::before {
     z-index: -1;
 }
 
-/* ✨ Fade Animation */
-.fade-in {
-    animation: fadeIn 2s ease-in;
+/* 💞 Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px);}
-    to { opacity: 1; transform: translateY(0);}
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* 🪔 Gold animated border */
+body {
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, gold, #ffdf80, gold) 1;
+    animation: borderGlow 3s infinite;
+}
+
+@keyframes borderGlow {
+    0% { border-image-source: linear-gradient(45deg, gold, #ffdf80); }
+    50% { border-image-source: linear-gradient(45deg, #fff2b3, gold); }
+    100% { border-image-source: linear-gradient(45deg, gold, #ffdf80); }
 }
 
 /* 💖 Header */
@@ -48,16 +63,15 @@ body::before {
 .title {
     font-family: 'Great Vibes', cursive;
     font-size: 48px;
-    color: #ffd700;
+    color: gold;
 }
 
 .names {
     font-size: 32px;
     margin-top: 15px;
-    font-weight: 600;
 }
 
-/* 💎 Glass Cards */
+/* 💎 Cards */
 .container {
     padding: 20px;
     text-align: center;
@@ -66,52 +80,62 @@ body::before {
 .card {
     backdrop-filter: blur(10px);
     background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 20px;
     padding: 20px;
     margin: 15px auto;
     max-width: 400px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* 🌟 Headings */
-.heading {
-    color: #ffd700;
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 18px;
+/* 📸 Gallery */
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
 }
 
-/* 📍 Map */
-.map iframe {
-    border-radius: 12px;
-    margin-top: 10px;
+.gallery img {
+    width: 200px;
+    border-radius: 15px;
 }
 
-/* 📱 WhatsApp Button */
-.whatsapp {
+/* 📱 Buttons */
+.btn {
     display: inline-block;
-    margin-top: 25px;
-    padding: 14px 25px;
-    background: linear-gradient(45deg, #25D366, #128C7E);
-    color: white;
+    margin: 10px;
+    padding: 12px 20px;
     border-radius: 30px;
     text-decoration: none;
+    color: white;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* ✨ Footer */
+.whatsapp { background: #25D366; }
+.calendar { background: #ff9800; }
+.mapbtn { background: #2196F3; }
+
 .footer {
-    margin: 25px;
-    font-size: 14px;
-    opacity: 0.9;
+    margin: 20px;
 }
 
 </style>
 </head>
 
-<body class="fade-in">
+<body>
+
+<!-- 💞 Hearts Script -->
+<script>
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
 
 <!-- 💖 Header -->
 <div class="header">
@@ -125,38 +149,55 @@ body::before {
 <div class="container">
 
     <div class="card">
-        <div class="heading">Reception</div>
+        <h3>Reception</h3>
         <p>📅 06 June 2026</p>
         <p>🕰 6:00 PM – 9:00 PM</p>
     </div>
 
     <div class="card">
-        <div class="heading">Wedding</div>
+        <h3>Wedding</h3>
         <p>📅 07 June 2026</p>
         <p>🕰 4:30 AM – 5:30 AM</p>
     </div>
 
     <div class="card">
-        <div class="heading">Venue</div>
+        <h3>Venue</h3>
         <p>Somasundara Mahal, Tiruppur</p>
 
-        <div class="map">
-            <iframe 
-                src="https://maps.google.com/maps?q=Somasundara%20Mahal%20Tiruppur&z=15&output=embed"
-                width="100%" height="200" style="border:0;">
-            </iframe>
+        <!-- 🧭 Live Navigation -->
+        <a class="btn mapbtn"
+           href="https://www.google.com/maps/search/?api=1&query=Somasundara+Mahal+Tiruppur"
+           target="_blank">
+           📍 Open in Maps
+        </a>
+    </div>
+
+    <!-- 📸 Photo Gallery -->
+    <div class="card">
+        <h3>Our Moments 💞</h3>
+        <div class="gallery">
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
         </div>
     </div>
 
-    <!-- 📱 WhatsApp RSVP -->
-    <a class="whatsapp" 
-       href="https://wa.me/91XXXXXXXXXX?text=We%20are%20excited%20to%20attend%20your%20wedding%20💐"
+    <!-- 📅 Calendar Button -->
+    <a class="btn calendar"
+       href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20Kaviyarasan%20%26%20Sowmiya&dates=20260607T043000/20260607T053000&details=Wedding%20Ceremony&location=Somasundara%20Mahal%20Tiruppur"
        target="_blank">
-       💌 RSVP on WhatsApp
+       📅 Save to Calendar
+    </a>
+
+    <!-- 📱 WhatsApp -->
+    <a class="btn whatsapp"
+       href="https://wa.me/91XXXXXXXXXX?text=We%20will%20attend%20your%20wedding%20💐"
+       target="_blank">
+       💌 RSVP
     </a>
 
     <div class="footer">
-        With love, we invite you to celebrate our special day 💖
+        With love, we invite you 💖
     </div>
 
 </div>
